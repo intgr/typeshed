@@ -4,8 +4,8 @@ from typing import IO, Any, Dict as DictT, Mapping, MutableMapping, Optional, Te
 if sys.version_info >= (3,):
     from enum import Enum
     class PlistFormat(Enum):
-        FMT_XML: int
-        FMT_BINARY: int
+        FMT_XML: PlistFormat
+        FMT_BINARY: PlistFormat
     FMT_XML = PlistFormat.FMT_XML
     FMT_BINARY = PlistFormat.FMT_BINARY
 

@@ -6,11 +6,11 @@ from cryptography.hazmat.primitives.hashes import HashAlgorithm
 from cryptography.hazmat.primitives.kdf import KeyDerivationFunction
 
 class Mode(Enum):
-    CounterMode: str
+    CounterMode: Mode
 
 class CounterLocation(Enum):
-    BeforeFixed: str
-    AfterFixed: str
+    BeforeFixed: CounterLocation
+    AfterFixed: CounterLocation
 
 class KBKDFHMAC(KeyDerivationFunction):
     def __init__(

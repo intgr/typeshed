@@ -64,6 +64,6 @@ class HostSystem(ManagedEntity): ...
 class VirtualMachine(ManagedEntity): ...
 
 class VirtualMachinePowerState(Enum):
-    poweredOff: int
-    poweredOn: int
-    suspended: int
+    poweredOff: VirtualMachinePowerState
+    poweredOn: VirtualMachinePowerState
+    suspended: VirtualMachinePowerState

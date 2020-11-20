@@ -118,8 +118,8 @@ class Name(object):
     def rfc4514_string(self) -> str: ...
 
 class Version(Enum):
-    v1: int
-    v3: int
+    v1: Version
+    v3: Version
 
 class Certificate(metaclass=ABCMeta):
     extensions: Extensions

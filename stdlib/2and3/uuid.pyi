@@ -9,9 +9,9 @@ _FieldsType = Tuple[int, int, int, int, int, int]
 if sys.version_info >= (3, 7):
     from enum import Enum
     class SafeUUID(Enum):
-        safe: int
-        unsafe: int
-        unknown: None
+        safe: SafeUUID
+        unsafe: SafeUUID
+        unknown: SafeUUID
 
 class UUID:
     if sys.version_info >= (3, 7):
