@@ -107,10 +107,16 @@ def run_stubtest(
         if platform_allowlist.exists():
             stubtest_cmd.extend(["--allowlist", str(platform_allowlist)])
 
-        # Perform some black magic in order to run stubtest inside uWSGI
         if dist_name == "uWSGI":
+            # Perform some black magic in order to run stubtest inside uWSGI
             if not setup_uwsgi_stubtest_command(dist, venv_dir, stubtest_cmd):
                 return False
+        elif dist_name == "django-filter":
+            # django-filter needs working Django settings
+            stubtest_env["DJANGO_SETTINGS_MODULE"] = "django_settings"
+            pythonpath = stubtest_env.get("PYTHONPATH")
+            pythonpath = (pythonpath + os.pathsep if pythonpath else "") + str(dist / "@tests")
+            stubtest_env["PYTHONPATH"] = pythonpath
 
         try:
             subprocess.run(stubtest_cmd, env=stubtest_env, check=True, capture_output=True)

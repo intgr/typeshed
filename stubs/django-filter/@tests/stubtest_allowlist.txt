@@ -1,3 +1,4 @@
+# Unhandled: these should be checked and fixed
 django_filters.Filter.__init__
 django_filters.FilterMethod
 django_filters.FilterSet.base_filters
@@ -33,8 +34,3 @@ django_filters.views.MigrationNotice
 django_filters.views.RenameAttributesBase
 django_filters.widgets.BaseCSVWidget.surrogate
 django_filters.widgets.CSVWidget.__init__
-
-# These fail due to DJANGO_SETTINGS_MODULE being unset
-django_filters.compat
-django_filters.conf
-django_filters.utils
